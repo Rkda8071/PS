@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-ll d3[310],d5[310],d7[310],hap;
+ll d3[10100],d5[10100],d7[10100],hap;
 int n;
 int main(){
     scanf("%d",&n);
