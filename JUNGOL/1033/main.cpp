@@ -2,8 +2,9 @@
 using namespace std;
 typedef pair<int,int> p;
 typedef pair<int,p> pp;
-int n,sy,sx,ey,ex,k;
-int a[51][51],d[51][51];
+vector<p> trace;
+int n,sy,sx,ey,ex,k,cnt;
+int a[51][51],d[51][51],path[51][51];
 int yyy[4] = {0,0,1,-1}, xxx[4] = {1,-1,0,0};
 //queue<int> q;
 priority_queue<pp, vector<pp>, greater<pp> > pq;
@@ -42,16 +43,23 @@ int main(){
             if(yy>0 && yy<=n && xx>0 && xx<=n){
                 if(d[yy][xx] == 0 || d[yy][xx] > d[y][x] + (a[yy][xx] ? k : 1)){
                     d[yy][xx] = d[y][x] + (a[yy][xx] ? k : 1);
+                    path[yy][xx] = i;
                     pq.push(make_pair(d[yy][xx],make_pair(yy,xx)));
                     //q.push(yy); q.push(xx);
                 }
             }
         }
     }
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=n;j++) printf("%d ",d[i][j]);
-        puts("");
+    printf("%d\n",d[ey][ex]);
+    y = ey; x = ex; trace.push_back(make_pair(y,x));
+    while(y!=sy || x!=sx){
+        yy = y; xx = x;
+        y -= yyy[path[yy][xx]]; x-=xxx[path[yy][xx]];
+        if(y==sy && x==sx) break;
+        if(path[yy][xx]/2 != path[y][x]/2) trace.push_back(make_pair(y,x));
     }
-    printf("%d",d[ey][ex]);
+    trace.push_back(make_pair(y,x));
+    printf("%d ",trace.size());
+    for(int i=trace.size()-1;i>=0;i--) printf("%d %d ",trace[i].first,trace[i].second);
     return 0;
 }
