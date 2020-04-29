@@ -31,3 +31,26 @@ int main(){
     }
     return 0;
 }
+/*
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node{
+    int idx;
+    Node * next;
+};
+int n,k;
+int main(){
+    scanf("%d %d",&n,&k);
+    Node * head = 0,* tail = 0;
+    for(int i=1;i<=n;i++){
+        Node * newNode;
+        newNode = new Node;
+        newNode->idx = i;
+        if(!head) head = newNode;
+        if(tail) tail->next = newNode;
+        tail = newNode;
+    }
+    tail->next = head;
+
+}*/
