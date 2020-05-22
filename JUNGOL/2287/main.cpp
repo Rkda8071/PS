@@ -1,47 +1,45 @@
 #include<bits/stdc++.h>
-#define ang 1000000000
 using namespace std;
 typedef long long ll;
 typedef tuple<ll,ll> tp;
-tp a[100010],b[100010];
 int n,m;
-ll x,y;
+tp a[100100],g[100100];
 multiset<ll> s;
-ll solve(){
-    sort(a+1,a+n+1);
-    sort(b+1,b+m+1);
-    int chk = 0;
-    ll dap = 0LL;
-    for(int i=1;i<=n;i++){
-        x = ang - get<0>(a[i]);
-        for(int j=chk+1;j<=m;j++){
-            if(ang-get<0>(b[j])<x) break;
-            s.insert((get<1>(b[j])));
-        }
-        x = get<1>(a[i]);
-        if(s.empty()) return -1;
-        dap += (*s.lower_bound(x));
-    }
-    return dap;
-}
+ll x,y,dap;
 int main(){
     scanf("%d %d",&n,&m);
     for(int i=1;i<=n;i++){
-        scanf("%lld %lld",&x,&y);
-        a[i] = tp(ang-y,x); //¸À, °ª
+        scanf("%lld %lld",&x,&y); //ê°’, ë§›
+        a[i] = tp(2000000000LL-y,x);
     }
     for(int i=1;i<=m;i++){
         scanf("%lld %lld",&x,&y);
-        b[i] = tp(ang-y,x);
+        g[i] = tp(y,x);
     }
-    printf("%lld",solve());
-    /*for(int i=1;i<=n;i++) {
-        tie(x,y) = a[i];
-        printf("{%d %d}\n",ang-x,y);
+    // [ ë§›, ê°’ ]
+    sort(a+1,a+n+1);
+    sort(g+1,g+m+1);
+    for(int i=1;i<=n;i++){
+        tie(y,x) = a[i];
+        while(m>0 && get<0>(g[m])>=2000000000LL-y){
+            s.insert(get<1>(g[m]));
+            --m;
+        }
+        if(s.size() == 0){
+            dap = -1;
+            break;
+        }
+        auto j = s.lower_bound(x);
+        if(*j >= x) dap += *j;
+        else{
+            if(++j == s.end()){
+                dap = -1;
+                break;
+            }
+            dap += *j;
+        }
+        s.erase(j);
     }
-    for(int i=1;i<=m;i++) {
-        tie(x,y) = b[i];
-        printf("[%d %d]\n",ang-x,y);
-    }*/
+    printf("%lld",dap);
     return 0;
 }
