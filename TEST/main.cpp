@@ -1,29 +1,20 @@
-#include<bits/stdc++.h>
+#include <stdio.h>
+#include <algorithm>
 using namespace std;
-typedef long long ll;
-int main(){
-    ll k,m,nn,n,dap=0LL;
-    scanf("%lld",&n);
-
-    nn = n;
-    if(n%2LL==0){
-        while(n%2LL==0){
-            dap+=2LL;
-            n/=2LL;
-            printf("2\n");
-        }
+int ba[100100];
+int main()
+{
+    int a,b,c,d,e,f,m,n;
+    scanf("%d",&a);
+    for(m=0;m<a;m++)
+    {
+        scanf("%d.%d.%d",&b,&c,&d);
+        ba[m]=b*1000+c*100+d;
     }
-    for(ll i=3LL;i*i<=nn;i++){
-        if(n%i==0){
-            while(n%i==0){
-                dap+=i;
-                n/=i;
-                printf("%lld\n",i);
-            }
-        }
-        if(n==1) break;
+    sort(ba,ba+a);
+    for(m=0;m<a;m++)
+    {
+        b=ba[m]-ba[m]/1000*1000;
+        printf("%d.%02d.%02d\n",ba[m]/1000,b/100,ba[m]%100);
     }
-    if(n>1) dap+=n;
-    printf("%lld",dap);
-    return 0;
 }
