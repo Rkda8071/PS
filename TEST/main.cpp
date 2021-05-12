@@ -1,20 +1,28 @@
-#include <stdio.h>
+#include <cstdio>
+#include <iostream>
 #include <algorithm>
 using namespace std;
-int ba[100100];
-int main()
-{
-    int a,b,c,d,e,f,m,n;
-    scanf("%d",&a);
-    for(m=0;m<a;m++)
-    {
-        scanf("%d.%d.%d",&b,&c,&d);
-        ba[m]=b*1000+c*100+d;
-    }
-    sort(ba,ba+a);
-    for(m=0;m<a;m++)
-    {
-        b=ba[m]-ba[m]/1000*1000;
-        printf("%d.%02d.%02d\n",ba[m]/1000,b/100,ba[m]%100);
-    }
+int n,flag=0,a[1000001],cnt;
+void f(int i,int sum) {
+   if(i!=0&&i==flag&&sum != 1) return;
+   if (sum == 1) {
+      flag=i;
+      return;
+   }
+   if (sum % 3 == 0) {
+      a[i]=sum/3;
+      f(i + 1, sum / 3);
+   }
+   if (sum % 2 == 0) {
+      a[i]=sum/2;
+      f(i + 1, sum / 2);
+   }
+   a[i]=sum-1;
+   f(i + 1, sum - 1);
+}
+int main() {
+   scanf("%d", &n);
+   f(0,n);
+   printf("%d\n",flag);
+    return 0;
 }
