@@ -2,27 +2,33 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int n,flag=0,a[1000001],cnt;
-void f(int i,int sum) {
-   if(i!=0&&i==flag&&sum != 1) return;
-   if (sum == 1) {
-      flag=i;
+int n,a[1000001],ar[1000001];
+void f(int i,int sum){
+   if(sum==1){
       return;
    }
-   if (sum % 3 == 0) {
-      a[i]=sum/3;
-      f(i + 1, sum / 3);
+   if((a[sum/3]>i||a[sum/3]==0)&&sum%3==0){
+      ar[i]=sum/3;
+      a[sum/3]=i+1;
+      f(i+1,sum/3);
    }
-   if (sum % 2 == 0) {
-      a[i]=sum/2;
-      f(i + 1, sum / 2);
+   if((a[sum/2]>i||a[sum/2]==0)&&sum%2==0){
+      ar[i]=sum/2;
+      a[sum/2]=i+1;
+      f(i+1,sum/2);
    }
-   a[i]=sum-1;
-   f(i + 1, sum - 1);
+   if(a[sum-1]>i||a[sum-1]==0){
+      ar[i]=sum-1;
+      a[sum-1]=i+1;
+      f(i+1,sum-1);
+   }
 }
 int main() {
    scanf("%d", &n);
    f(0,n);
-   printf("%d\n",flag);
+   printf("%d\n%d ",a[1],n);
+   for(int i=1;i>1;i=ar[i]){
+      printf("%d ",ar[i]);
+   }
     return 0;
 }

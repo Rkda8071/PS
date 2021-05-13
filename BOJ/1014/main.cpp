@@ -21,37 +21,40 @@ bool chk(int i,int j){
     for(int l=0;l<m;l++){
         int x = (1<<l);
         if((j&x) == 0) continue; //l¹øÂ°¿¡´Â ¾È ¾ÉÀ½
-        if((l>0 && (j&(x>>1)) || a[i][l] == 'x') // ºÒ²É°¡´É
+        if((l>0 && (j&(x>>1)) || a[i][l] == 'x')) // ºÒ²É°¡´É
             return 0;
     }
     return 1;
 }
 
-void solve(){
+int solve(){
+    int dap = 0;
     for(int i=n-1;i>=0;i--){
         for(int j=0;j<(1<<m);j++){ //i¹øÂ° Ãþ, jÇüÅÂÀÇ ÁÂ¼®
-            if(!chk()) continue;
-            int x = builtin_popcount(j);
+            if(!chk(i,j)) continue;
+            int x = __builtin_popcount(j);
             for(int l=0;l<(1<<m);l++){// ¹Ø¿¡¼­ °¡Á®¿Ã Ãþ
                 if(d[i+1][l] == -1) continue; //¾È ¾ÉÀ½
                 //ÀÌÀü°ú °ãÄ¡´Â ºñÆ®°¡ ÀÖ³ª?
                 int ang = 0;
                 for(int k=0;k<m;k++){
                     if((l&(1<<k)) &&
-                       (((1<<(k-1)) | (1<<(k+1))) & j != 0))
+                       ((((1<<(k-1)) | (1<<(k+1))) & j) != 0))
                         ang = 1;
                 }
                 if(ang==0) d[i][j] = max(d[i][j],d[i+1][l]+x);
             }
+            dap = max(dap, d[i][j]);
         }
     }
+    return dap;
 }
 
 int main(){
     scanf("%d",&t);
     while(t--){
         init();
-        solve();
+        printf("%d\n",solve());
     }
     return 0;
 }
