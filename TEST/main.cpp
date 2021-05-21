@@ -1,28 +1,32 @@
-#include <cstdio>
-#include <iostream>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
-int n,flag=0,a[1000001],cnt;
-void f(int i,int sum) {
-   if(i!=0&&i==flag&&sum != 1) return;
-   if (sum == 1) {
-      flag=i;
-      return;
-   }
-   if (sum % 3 == 0) {
-      a[i]=sum/3;
-      f(i + 1, sum / 3);
-   }
-   if (sum % 2 == 0) {
-      a[i]=sum/2;
-      f(i + 1, sum / 2);
-   }
-   a[i]=sum-1;
-   f(i + 1, sum - 1);
+int n,m;
+int a[30],cnt[30];
+int dap[10];
+void f(int x){
+    if(x==m+1){
+        for(int i=1;i<=m;i++)
+            printf("%c",dap[i] + 'a');
+        puts("");
+        return;
+    }
+    for(int i=0;i<26;i++){
+        if(cnt[i]<a[i]){
+            cnt[i]++;
+            dap[x] = i;
+            f(x+1);
+            cnt[i]--;
+            dap[x] = 0;
+        }
+    }
 }
-int main() {
-   scanf("%d", &n);
-   f(0,n);
-   printf("%d\n",flag);
-    return 0;
+int main(){
+    scanf("%d %d",&n,&m);
+    for(int i=0;i<n;i++){
+        char x;
+        scanf(" %c",&x);
+        a[x-'a']++;
+    }
+    //dap[0] = 0;
+    f(1);
 }
