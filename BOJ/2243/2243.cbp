@@ -33,11 +33,15 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+<<<<<<< HEAD
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
+=======
+		<Extensions />
+>>>>>>> 519336d2ebe4b6acc46db998758e5263ad13a71c
 	</Project>
 </CodeBlocks_project_file>

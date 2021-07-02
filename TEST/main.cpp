@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    printf("\"100%% 가능할거야!\"");
+=======
 #include<stdio.h>
 int i,j,n;
 int cnt=0,ans=0,t;
@@ -61,4 +68,5 @@ int main()
         }
     }
     printf("%d",ans);
+>>>>>>> c8c9ace7c8914aaaa50347e3a861b3be62fd916b
 }
