@@ -1,72 +1,84 @@
-<<<<<<< HEAD
 #include<bits/stdc++.h>
 using namespace std;
 
+struct S{
+   int x;
+   int y;
+};
+int a[55][55], ch[55][55];
+queue<S> q;
+
 int main(){
-    printf("\"100%% 가능할거야!\"");
-=======
-#include<stdio.h>
-int i,j,n;
-int cnt=0,ans=0,t;
-int a[100][100],ch[100][100];
-void f(int x,int y,int tt)
-{
-    ch[x][y]=t;
-    if(a[x][y]>tt)
-    {
-        if((x+1)!=n && ch[x+1][y]!=t)
-        {
-            f(x+1,y,tt);
-        }
-        if((x-1)!=-1 && ch[x-1][y]!=t)
-        {
-            f(x-1,y,tt);
-        }
-        if((y+1)!=n && ch[x][y+1]!=t)
-        {
-            f(x,y+1,tt);
-        }
-        if((y-1)!=-1 && ch[x][y-1]!=t)
-        {
-            f(x,y-1,tt);
-        }
-    }
-    return;
-}
-int main()
-{
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            scanf("%d",&a[i][j]);
-        }
-    }
-    for(t=1;t<100;t++)
-    {
-        cnt=0;
-        for(i=0;i<n;i++)
-        {
-            for(j=0;j<n;j++)
-            {
-                if(a[i][j]>t && ch[i][j]!=t)
-                {
-                    f(i,j,t);
-                    cnt++;
-                }
+   int w, h, i, j, k, l, cnt=0;
+
+   while(1){
+      scanf("%d %d", &h, &w);
+
+      if(!w&&!h){
+         return 0;
+      }
+
+      for(i=0;i<w;i++){
+         for(j=0;j<h;j++){
+            scanf("%d", &a[i][j]);
+         }
+      }
+
+      for(i=0;i<w;i++){
+         for(j=0;j<h;j++){
+            if(a[i][j]&&!ch[i][j]){
+               q.push({i, j});
+
+               while(!q.empty()){
+                  int x=q.front().x;
+                  int y=q.front().y;
+
+                  if(x<w-1&&!ch[x+1][y]&&a[x+1][y]){
+                     ch[x+1][y]=1;
+                     q.push({x+1, y});
+                  }
+                  if(y<h-1&&!ch[x][y+1]&&a[x][y+1]){
+                     ch[x][y+1]=1;
+                     q.push({x, y+1});
+                  }
+                  if(x>0&&!ch[x-1][y]&&a[x-1][y]){
+                     ch[x-1][y]=1;
+                     q.push({x-1, y});
+                  }
+                  if(y>0&&!ch[x][y-1]&&a[x][y-1]){
+                     ch[x][y-1]=1;
+                     q.push({x, y-1});
+                  }
+                  if(x<w-1&&y<h-1&&!ch[x+1][y+1]&&a[x+1][y+1]){
+                     ch[x+1][y+1]=1;
+                     q.push({x+1, y+1});
+                  }
+                  if(x<w-1&&y>0&&!ch[x+1][y-1]&&a[x+1][y-1]){
+                     ch[x+1][y-1]=1;
+                     q.push({x+1, y-1});
+                  }
+                  if(x>0&&y<h-1&&!ch[x-1][y+1]&&a[x-1][y+1]){
+                     ch[x-1][y+1]=1;
+                     q.push({x-1, y+1});
+                  }
+                  if(x>0&&y>0&&!ch[x-1][y-1]&&a[x-1][y-1]){
+                     ch[x-1][y-1]=1;
+                     q.push({x-1, y-1});
+                  }
+                  q.pop();
+               }
+
+               cnt++;
             }
+         }
+      }
+        for(k=0;k<50;k++){
+           for(l=0;l<50;l++){
+              ch[k][l]=0;
+              a[k][l]=0;
+           }
         }
-        //printf("qwertygood");
-        if(cnt>ans)
-        {
-            ans=cnt;
-        }
-        if(cnt==0)
-        {
-            break;
-        }
-    }
-    printf("%d",ans);
->>>>>>> c8c9ace7c8914aaaa50347e3a861b3be62fd916b
+      printf("%d\n", cnt);
+      cnt=0;
+   }
 }
