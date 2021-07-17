@@ -1,48 +1,30 @@
-#include <stdio.h>
-#include <algorithm>
-#include <vector>
-using namespace std;
-int n, r1_start, r2_start;
-vector<pair<int, int>> bridge[100100];
-vector<int> path;
-int vis[100100]={0};
-int dfs(int k)
-{
-    if(k==r2_start)
-        return 1;
+#include <stdio.h.>
+#include <stdlib.h>
+int a,b,c,d,e,f,g,m,n;
+int ch[1000];
 
-    int found = 0;
-    for(int i=0; i<bridge[k].size(); i++)
+int ja(int x)
+{
+    if(x==b)
     {
-        if(!vis[bridge[k][i].first]){
-            vis[bridge[k][i].first] = 1;
-            if(dfs(bridge[k][i].first)){
-                path.push_back(bridge[k][i].second);
-                found = 1;
-            }
+        printf("\n");
+        for(n=0;n<a;n++)
+            ch[n]=0;
+        return 0;
+    }
+    for(m=0;m<a;m++)
+    {
+        if(ch[m]!=1)
+        {
+            ch[m]=1;
+            printf("%c",'a'+m);
+            ja(x+1);
         }
     }
-
-    return found;
-
-
 }
 int main()
 {
-    scanf("%d %d %d",&n,&r1_start,&r2_start);
-    for(int i=0; i<n-1; i++){
-        int u,v,cost;
-        scanf("%d %d %d",&u,&v,&cost);
-        bridge[u].push_back({v,cost});
-        bridge[v].push_back({u,cost});
-    }
-    vis[r1_start]=1;
-    dfs(r1_start);
-    sort(path.begin(), path.end());
-    int ans = 0;
-    for(int i=0; i<(int)(path.size()-1); i++)
-        ans += path[i];
-
-    printf("%d",ans);
-
+    scanf("%d %d",&a,&b);
+    ja(0);
+    return 0;
 }
