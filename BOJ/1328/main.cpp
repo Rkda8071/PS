@@ -1,20 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
-int al[110],ar[110];
+typedef long long ll;
+int n,maxl,maxr;
+ll a[110],dap,ans[110],ncr[110][110];
+void f(int id,int x,int y,int l,int r){
+    if(l == maxl && r == maxr){
+
+    }
+    if(l<maxl){
+        for(int i=maxl-l;i<x;i++){
+            f(id-1,i,y,)
+        }
+    }
+    if(r<maxr){
+
+    }
+}
 int main(){
-    int n,l,r;
-    scanf("%d %d %d",&n,&l,&r);
+    scanf("%d %d %d",&n,&maxl,&maxr);
+    for(int i=1;i<=n;i++){
+        a[i] = 1LL;
+        for(ll j=(ll)i; j>1LL; j--)
+            a[i] = (a[i]*j)%1000000007LL;
+    }
+    for(int i=1;i<=n;i++){
+        ncr[i][0] = ncr[i][i] = 1LL;
+        for(int j=1;j<i;j++)
+            ncr[i][j] = (ncr[i-1][j] + ncr[i-1][j-1])%1000000007LL;
+    }
 
-    for(int i=l;i<=n-r;i++){
-        //i에 n설치
-
-        //n-1도 설치함
-        //n과 n-1사이에 모든 것을 숨길 수 있음.
-        if(l>=2){ //l에 n-1 설치
-
-        }
-        if(r>=2){ //r에 n-1설치
-
-        }
+    for(int i=maxl;i<=n-maxr+1;i++){
+        f(n-1,i,i,1,1);
     }
 }

@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef tuple<int,int> tp;
+int n,k,d[20][100100],p[100100];
 vector<tp> a[100100];
-int n,nn;
-tp seg[800000];
+bool chk[100100];
 
-void init(){
-
+void dfs(int x,int lev){
+    chk[x] = true;
 }
 
 int main(){
@@ -17,13 +17,5 @@ int main(){
         a[x].push_back(tp(y,z));
         a[y].push_back(tp(x,z));
     }
-
-    int t;
-    scanf("%d",&t);
-    while(t--){
-        int x,y;
-        scanf("%d %d",&x,&y);
-        //x,y중에서 최소간선
-
-    }
+    dfs(1,0);
 }
