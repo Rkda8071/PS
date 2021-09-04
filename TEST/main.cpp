@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -33,4 +34,14 @@ int main()
     for(i=t;i>=1;i--)
         printf("%d\n",cnt[i]);
     return 0;
+=======
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int a=8,b=6;
+
+    printf("%d\n",a-b*4);
+    printf("%d\n",a-(b*4));
+>>>>>>> 908aeba6b7f6b3dd0334acf7b703ded8d327bea1
 }

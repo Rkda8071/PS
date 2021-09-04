@@ -12,18 +12,17 @@ int main(){
     scanf("%lld %lld %lld %lld",&n,&m,&l,&k);
     for(ll i=1LL;i<=n;i++)
         scanf("%lld",&t[i]);
-    for(ll i=1LL;i<=n;i++){
+    for(ll i=1LL;i<=m;i++){
         ll x,y;
         scanf("%lld %lld",&x,&y); //y를 하려면 x를 해야함
         cnt[y]++; a[x].push_back(y);
     }
 
-    for(ll i=1LL;i<=n;i++){
-        if(cnt[i] == 0LL){
+    for(ll i=1LL;i<=n;i++)
+        if(cnt[i] == 0LL)
             q.push(i);
-            break;
-        }
-    }
+
+
 
     while(!q.empty()){
         ll x,y;
@@ -41,9 +40,3 @@ int main(){
     else printf("Give Up :(");
     return 0;
 }
-
-/*
-    수정해야할 것
-    가장 먼저 배우는 입출력이 몇번째 내용인지
-    -> 위 코드에서는 편의상 1번째 내용으로 간주함
-*/
