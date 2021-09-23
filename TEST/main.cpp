@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+<<<<<<< HEAD
 int yyy[4] = {2,0,-2,0}, xxx[4] = {0,-2,0,2};
 int d[4][1010][1010];
 int n,m,w,cnt;
@@ -49,4 +50,10 @@ int main(){
         printf("%d ",x);
     }
     //return ans;
+=======
+
+int main(){
+    vector<int> v;
+    cout << typeid(v.size()).name();
+>>>>>>> 3faccd4f72ac869485130781e8b7d4e7a2f95cce
 }
