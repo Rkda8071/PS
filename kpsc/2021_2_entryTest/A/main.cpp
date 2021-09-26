@@ -1,9 +1,8 @@
-#include <iostream>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    cout << "Hello world!" << endl;
-    return 0;
+int main(){
+    int n,m,k;
+    scanf("%d %d %d",&n,&m,&k);
+    printf("%d",n-m-k);
 }
