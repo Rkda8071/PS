@@ -3,15 +3,17 @@ using namespace std;
 int n,m,cur;
 vector<int> v[1010];
 int d[1010],chk[1010];
-void dfs(int x){
-    for(auto xx : v[x]){
-        if(chk[xx] == cur) continue;
-        chk[xx] = cur;
-        dfs(d[xx]);
-        d[xx] = x;
-        break;
+bool dfs(int from){
+    chk[from] = cur;
+    for(auto to : v[from]){
+        if(d[to] == 0 || chk[d[to]] != cur && dfs(d[to])){
+            d[to] = from;
+            return true;
+        }
     }
+    return false;
 }
+
 void init(){
     scanf("%d %d",&n,&m);
     for(int i=1;i<=n;i++){
@@ -23,15 +25,14 @@ void init(){
         }
     }
 }
+
 int main(){
+    int dap = 0;
     init();
     for(int i=1;i<=n;i++){
         cur = i;
-        dfs(i);
+        if(dfs(i))
+            dap++;
     }
-
-    int sum = 0;
-    for(int i=1;i<=n;i++)
-        sum += (d[i]) ? 1 : 0;
-    printf("%d",sum);
+    printf("%d",dap);
 }
