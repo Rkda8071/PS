@@ -1,42 +1,26 @@
 #include<bits/stdc++.h>
-#define mod 1000000
 using namespace std;
-int t=10,n,h;
-int a[1010],d[1010],dp[1010][10001];
-int main(){
-    while(t--){
-        scanf("%d %d",&n,&h);
-        for(int i=1;i<=n;i++)
-            scanf("%d",&a[i]);
-        for(int i=2;i<=n;i++)
-            scanf("%d",&d[i]);
-        for(int i=0;i<=n;i++)
-            for(int j=0;j<=h;j++)
-                dp[i][j] = 0 ;
+int n,m,a[10],dap[10];
 
-        dp[0][0] = dp[1][a[1]] = 1;
-        for(int i=2;i<=n;i++){
-            for(int j=a[i]-d[i];j<=h;j++){
-                dp[i][j] = (dp[i][j] + dp[i-1][j-(a[i]-d[i])]) % mod;
-            }
-            for(int j=a[i];j<=h;j++){
-                dp[i][j] = (dp[i][j] + dp[0][j-a[i]]) % mod;
-            }
-            for(int j=0;j<=h;j++){
-                dp[0][j] = (dp[0][j] + dp[i-1][j]) % mod;
-            }
-        }
-        int hap = 0;
-        for(int i=1;i<=h;i++)
-            hap = (hap + dp[0][i] + dp[n][i]) % mod;
-
-        printf("#%d %d",10-t,hap);
+void f(int x){
+    if(x == m+1){
+        for(int i=1;i<=m;i++) printf("%d ",a[dap[i]]);
+        puts("");
+        return;
+    }
+    for(int i=dap[x-1];i<=n;i++){
+        if(a[i-1] == a[i]) continue;
+        dap[x] = i;
+        f(x+1);
+        dap[x] = 0;
     }
 }
-/*
-10 100
-49 64 69 76 45 40 50 36 57 87
-18 13 58 30 30 31 26 32 50
-
-
-*/
+int main(){
+    scanf("%d %d",&n,&m);
+    for(int i=1;i<=n;i++){
+        scanf("%d",&a[i]);
+    }
+    dap[0] = 1;
+    sort(a+1,a+n+1);
+    f(1);
+}
