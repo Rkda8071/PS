@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1620741598 source:c:\ps\boj\1431\main.cpp
-	<cstdio>
-	<iostream>
-	<string.h>
-	<algorithm>
-
