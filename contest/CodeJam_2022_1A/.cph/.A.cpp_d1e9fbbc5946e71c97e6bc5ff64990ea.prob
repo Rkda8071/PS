@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"c:\\PS\\contest\\CodeJam_2022_1A\\A.cpp","tests":[{"id":1649465793752,"input":"3\nPEEL\nAAAAAAAAAA\nCODEJAMDAY\n","output":"Case #1: PEEEEL\nCase #2: AAAAAAAAAA\nCase #3: CCODDEEJAAMDAAY\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\contest\\CodeJam_2022_1A\\A.cpp","group":"local","local":true}

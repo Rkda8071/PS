@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"c:\\PS\\contest\\CodeJam_2022_1A\\C.cpp","tests":[{"id":1649474869610,"input":"3\n3 1\n1\n2\n1\n2 3\n1 2 1\n2 1 2\n3 3\n3 1 1\n3 3 3\n2 3 3\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\contest\\CodeJam_2022_1A\\C.cpp","group":"local","local":true}
