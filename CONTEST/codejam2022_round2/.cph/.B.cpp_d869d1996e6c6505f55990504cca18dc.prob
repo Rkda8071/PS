@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"c:\\PS\\CONTEST\\codejam2022_round2\\B.cpp","tests":[{"id":1652542027794,"input":"3\n2\n8\n50\n","output":"Case #1: 4\nCase #2: 24\nCase #3: 812\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\CONTEST\\codejam2022_round2\\B.cpp","group":"local","local":true}
