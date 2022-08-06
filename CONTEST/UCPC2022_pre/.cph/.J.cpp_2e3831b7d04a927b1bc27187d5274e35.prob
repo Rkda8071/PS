@@ -1,0 +1,1 @@
+{"name":"Local: J","url":"c:\\PS\\CONTEST\\UCPC2022_pre\\J.cpp","tests":[{"id":1656738800400,"input":"4\n1 27 3 12","output":"YES"},{"id":1656742641717,"input":"3\n9 1 4","output":"YES"},{"id":1656742984137,"input":"2\n1331\n11","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\CONTEST\\UCPC2022_pre\\J.cpp","group":"local","local":true}
