@@ -1,0 +1,1 @@
+{"name":"Local: 5553","url":"c:\\PS\\BOJ\\5553.cpp","tests":[{"id":1663736712389,"input":"6\n12 8\n5 9\n2 4\n10 12\n6 7\n13 9","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\BOJ\\5553.cpp","group":"local","local":true}

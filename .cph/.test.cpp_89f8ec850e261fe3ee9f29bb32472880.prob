@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"name":"Local: test","url":"c:\\PS\\test.cpp","tests":[{"id":1660570149421,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\test.cpp","group":"local","local":true}
+=======
+{"name":"Local: test","url":"c:\\PS\\test.cpp","tests":[{"id":1661247420755,"input":"5\n1 1\n2 4\n3 16\n4 64\n5 256\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PS\\test.cpp","group":"local","local":true}
+>>>>>>> 79c4455385ee82b8cd505250659933850e53989e

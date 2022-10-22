@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+#include<stdio.h>
+int a = 5;
+int func(){
+    int a = 4;
+    return a;
+}
+int main(){
+    int a = 3;
+    printf("%d %d %d",a, func(), a);
+}
+=======
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
@@ -167,3 +179,4 @@ int main() {
             printf("블랙잭 게임을 종료하겠습니다.\n");
         }
 }
+>>>>>>> 46cadef3ebe2799a7eb1bd3bcfc9d734838539d7
